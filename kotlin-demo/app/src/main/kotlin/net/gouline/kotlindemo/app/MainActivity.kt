@@ -10,6 +10,7 @@ import net.gouline.kotlindemo.R
 import android.widget.Toast
 import android.widget.TextView
 import butterknife.InjectView
+import butterknife.ButterKnife
 
 /**
  * Welcome activity.
@@ -25,12 +26,13 @@ open class MainActivity() : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super<Activity>.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ButterKnife.inject(this)
 
         scanWifiButton = findViewById(R.id.btn_scan_wifi) as Button?
         scanWifiButton?.setOnClickListener({ v ->
             startActivity(Intent(this, javaClass<WifiActivity>()))
             finish()
-        })
+        })gi
 
         // Setting status text view if not null.
         statusTextView?.setText("Test status")
